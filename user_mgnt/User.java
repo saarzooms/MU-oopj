@@ -1,4 +1,4 @@
-class User{
+class User {
     private String username;
     private String password;
     private String role;
@@ -27,5 +27,9 @@ class User{
         this.role = role;
     }
 
+    @Override
+    public String toString() {
+        return this.username + " " + this.password + " " + this.role;
+    }
 
 }
