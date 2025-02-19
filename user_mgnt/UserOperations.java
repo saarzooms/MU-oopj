@@ -41,8 +41,19 @@ public class UserOperations {
         }
     }
 
-    public void deleteUser(User user) {
-
+    public void deleteUser() {
+        Scanner sc = new Scanner(System.in);
+        String uname = sc.nextLine();
+        for (int i = 0; i < users.length; i++) {
+            if (users[i]
+                    .getUsername()
+                    .toUpperCase()
+                    .equals(
+                            uname
+                                    .toUpperCase())) {
+                users[i] = null;
+            }
+        }
     }
 
     public User validateUser(String username, String password) {
