@@ -8,7 +8,7 @@ public class UserOperations {
         users = new User[30];
     }
 
-    public void addUser() {
+    public User readData() {
         User user = new User();
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter username");
@@ -17,12 +17,28 @@ public class UserOperations {
         user.setPassword(sc.nextLine());
         System.out.println("Enter role(admin/user)");
         user.setRole(sc.nextLine());
-        users[count++] = user;
+        return user;
+    }
+
+    public void addUser() {
+        User newUser = readData();
+        users[count++] = newUser;
 
     }
 
-    public void updateUser(User user) {
-
+    public void updateUser() {
+        User user = readData();
+        for (int i = 0; i < users.length; i++) {
+            if (users[i]
+                    .getUsername()
+                    .toUpperCase()
+                    .equals(
+                            user
+                                    .getUsername()
+                                    .toUpperCase())) {
+                users[i] = user;
+            }
+        }
     }
 
     public void deleteUser(User user) {
